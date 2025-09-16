@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM Internship Yojna Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="nav-branding nav-link">Internship Yojna</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#all-internships" class="nav-link">Internships</a></li>
+                <li class="nav-item"><a href="#internbot" class="nav-link">InternBot</a></li>
+                <li class="nav-item"><a href="#dashboard" class="nav-link">Dashboard</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>Unlock Your Future with PM Internship Yojna</h1>
+                    <p>Your official guide to discovering and applying for prestigious government and private sector internships. Let's build a skilled India, together.</p>
+                    <a href="#about" class="cta-button nav-link">Learn More</a>
+                </div>
+            </div>
+            <div class="internship-listings">
+                 <h2>Featured Internships</h2>
+                 <div class="grid-container" id="featured-internships">
+                     </div>
+                 <div class="explore-more-container">
+                      <a href="#all-internships" class="cta-button nav-link">Explore More Internships</a>
+                 </div>
+            </div>
+        </section>
+
+        <section id="about" class="page-section">
+            <div class="about-content">
+                <h2>What We Do</h2>
+                <p>This portal is more than just a list of internships. We are an advanced platform designed to guide you to success.</p>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <h3>1. Skill Analysis</h3>
+                        <p>Our system analyzes your profile and skills to recommend the most suitable internships for you, increasing your chances of selection.</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>2. AI-Powered Assistance</h3>
+                        <p>Our 'InternBot' provides 1-on-1 assistance, answering your questions about applications, interviews, and career paths 24/7.</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>3. Constructive Feedback</h3>
+                        <p>If you aren't selected, we don't leave you in the dark. Our platform provides actionable feedback and suggests areas for improvement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="all-internships" class="page-section">
+            <div class="container">
+                <h2>All Available Internships</h2>
+                <div class="grid-container" id="all-internships-grid">
+                    </div>
+            </div>
+        </section>
+
+        <section id="internship-detail" class="page-section">
+            <div class="container" id="internship-detail-content">
+                </div>
+        </section>
+
+        <section id="internbot" class="page-section">
+            <div class="chatbot-container">
+                <div class="chatbot-header">
+                    <h3>InternBot Assistant</h3>
+                    <p>Ask me anything about internships!</p>
+                </div>
+                <div class="chatbot-messages" id="chatbot-messages">
+                    <div class="message bot">Hello! How can I help you today? Ask about "application process", "interview tips", or "required skills".</div>
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" id="user-input" placeholder="Type your message...">
+                    <button id="send-btn">Send</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="dashboard" class="page-section">
+            <div class="container">
+                <h2>Student Dashboard</h2>
+                <div class="dashboard-grid">
+                    
+                    <div class="dash-card profile-card">
+                        <img id="dash-profile-pic" src="" alt="Profile Picture">
+                        <h3 id="dash-profile-name"></h3>
+                        <p id="dash-profile-field"></p>
+                    </div>
+
+                    <div class="dash-card main-stat-card">
+                        <h3>Your Progress</h3>
+                        <div class="stats-and-chart">
+                            <div class="stat-items">
+                                <div class="stat-item">
+                                    <i class="fas fa-file-alt"></i>
+                                    <div>
+                                        <span class="stat-value" id="dash-applications">0</span>
+                                        <span class="stat-label">Applications Sent</span>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <div>
+                                        <span class="stat-value" id="dash-interviews">0</span>
+                                        <span class="stat-label">Interviews Scheduled</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="statusChart"></canvas>
+                                <div id="chart-percentage" class="chart-center-text">0%</div>
+                                <p class="chart-label">Profile Complete</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dash-card skills-card">
+                        <h3>Top Skills</h3>
+                        <ul id="skill-list-text" class="skill-list">
+                            </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <section id="login" class="page-section">
+            <div class="form-container">
+                <h2>Applicant Login</h2>
+                <form id="login-form">
+                    <input type="email" id="login-email" placeholder="Enter your email" required>
+                    <input type="password" id="login-password" placeholder="Enter your password" required>
+                    <button type="submit">Login</button>
+                    <p class="form-footer">Don't have an account? <a href="#signup" class="nav-link">Sign Up</a></p>
+                </form>
+            </div>
+        </section>
+        
+        <section id="signup" class="page-section">
+            <div class="form-container">
+                <h2>Create Student Account</h2>
+                <form id="signup-form">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="password" placeholder="Create Password" required>
+                    <select required>
+                        <option value="">Select Field of Study</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="mech">Mechanical Engineering</option>
+                        <option value="policy">Public Policy</option>
+                    </select>
+                    <button type="submit">Sign Up</button>
+                    <p class="form-footer">Already have an account? <a href="#login" class="nav-link">Login</a></p>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="floating-cart">
+        <span class="cart-icon">★</span>
+        <span id="cart-count">0</span>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 PM Internship Yojna Portal. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
